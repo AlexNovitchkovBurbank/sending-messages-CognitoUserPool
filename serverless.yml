@@ -1,0 +1,47 @@
+service: sending-messages-CognitoUserPool
+
+frameworkVersion: "3.28.1"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  environment:
+    WEBSITE_BASE_DOMAIN_NAME: "https://alexserverlesssystem-codedeployment-main-dev.s3.us-west-2.amazonaws.com"
+  name: aws
+  region: "us-west-2"
+  stage: "dev"
+
+  deploymentBucket:
+    name: sending-messages-codedeployment-bucket-${self:custom.stage}
+
+resources:
+  Resources:
+    CognitoUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UsernameAttributes:
+          - email
+        AutoVerifiedAttributes:
+          - email
+        Schema:
+          - Name: email
+            Required: true
+            Mutable: false
+          - Name: name
+            Required: true
+            Mutable: false
+        UserPoolName: sending-messages-CognitoUserPool
+    CognitoUserPoolDomain:
+      Type: AWS::Cognito::UserPoolDomain
+      Properties:
+        Domain: "1234567"
+        UserPoolId: !Ref CognitoUserPoolId
+      DependsOn: CognitoUserPool
+
+  Outputs:
+    CognitoUserPool:
+      Description: "Cognito user pool id"
+      Value: !Ref CognitoUserPool
+      Export:
+        Name: "CognitoUserPoolId"

@@ -1,0 +1,17 @@
+{
+  "name": "alexserverlesssystem-infrastructure-cognitouserpool",
+  "version": "1.0.0",
+  "description": "Cognito user pool",
+  "scripts": {
+    "sls:deploy": "serverless deploy  --verbose",
+    "sls:package": "serverless package --stage test"
+  },
+  "devDependencies": {
+    "serverless": "3.28.1"
+  },
+  "dependencies": {
+  },
+  "author": "System",
+  "license": "UNLICENSED",
+  "private": true
+}
