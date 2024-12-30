@@ -35,13 +35,18 @@ resources:
     CognitoUserPoolDomain:
       Type: AWS::Cognito::UserPoolDomain
       Properties:
-        Domain: "1234567"
-        UserPoolId: !Ref CognitoUserPoolId
+        Domain: "2345678"
+        UserPoolId: !Ref CognitoUserPool
       DependsOn: CognitoUserPool
 
   Outputs:
-    CognitoUserPool:
+    CognitoUserPoolId:
       Description: "Cognito user pool id"
       Value: !Ref CognitoUserPool
       Export:
-        Name: "CognitoUserPoolId"
+        Name: sending-messages-CognitoUserPoolId
+    CognitoUserPoolArn:
+      Description: "Cognito user pool arn"
+      Value: !GetAtt [CognitoUserPool, Arn]
+      Export:
+        Name: sending-messages-CognitoUserPoolArn

@@ -1,10 +1,11 @@
 {
-  "name": "alexserverlesssystem-infrastructure-cognitouserpool",
+  "name": "sending-messages-cognitouserpool",
   "version": "1.0.0",
   "description": "Cognito user pool",
   "scripts": {
-    "sls:deploy": "serverless deploy  --verbose",
-    "sls:package": "serverless package --stage test"
+    "sls:package": "serverless package --stage test",
+    "dp:np:w": "sls deploy --verbose -r us-west-2 -s dev",
+    "rm:np:w": "sls remove -r us-west-2 -s dev"
   },
   "devDependencies": {
     "serverless": "3.28.1"
