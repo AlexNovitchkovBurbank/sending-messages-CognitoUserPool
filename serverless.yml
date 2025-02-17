@@ -7,7 +7,7 @@ custom:
 
 provider:
   environment:
-    WEBSITE_BASE_DOMAIN_NAME: "https://alexserverlesssystem-codedeployment-main-dev.s3.us-west-2.amazonaws.com"
+    WEBSITE_BASE_DOMAIN_NAME: ""
   name: aws
   region: "us-west-2"
   stage: "dev"
