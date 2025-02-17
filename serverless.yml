@@ -6,8 +6,6 @@ custom:
   stage: ${opt:stage, self:provider.stage}
 
 provider:
-  environment:
-    WEBSITE_BASE_DOMAIN_NAME: ""
   name: aws
   region: "us-west-2"
   stage: "dev"
